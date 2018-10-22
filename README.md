@@ -1,6 +1,7 @@
 # spark-hbase
-This Package describes Integrating Spark with Hbase and HDFS
-Job mainely deals with Extraction,Transformation and Loading data
+
+This Package mainely describes Integrating Spark with Hbase and HDFS
+Job deals with Extraction,Transformation and Loading data
 Extraction: Data can be loaded from local or HDFS parquet files.
 Transformation: All transformation logic performed
 Loading: Finally data will be loaded into HDFS or Hbase
