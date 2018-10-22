@@ -43,7 +43,11 @@ def transformation_logic(df1,df2,df3):
     ,col("_c3").alias("Tran_DT")).where(col("Addr_ID").isNotNull() & col("Act_ID").isNotNull())
     
     # Joining above 3 dataframes
-    
+    df4_jn_df5_jn_df6=df4.join(df5,(df4.Addr_ID==df5.Addr_ID),"inner") \
+    .drop(df5["Addr_ID"]) \
+    .join(df6,(df4.Act_ID==df6.Act_ID) &(df4.Addr_ID==df6.Addr_ID),"inner") \
+    .drop(df6["Act_ID"]) \
+    .drop(df6["Addr_ID"])
           
     return df4_jn_df5_jn_df6#return transformed data frame
 
