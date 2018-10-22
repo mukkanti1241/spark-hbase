@@ -99,6 +99,7 @@ if __name__ == "__main__":
         hbase_cf_addr_col3=environ.get("dev_hbase_cf_addr_col3")
         hbase_cf_tran_col1=environ.get("dev_hbase_cf_tran_col1")
         hbase_cf_tran_col2=environ.get("dev_hbase_cf_tran_col2")
+        hbase_cf_tran_col3=environ.get("dev_hbase_cf_tran_col3")
         delimmter=environ.get("dev_delimmter")
         hostname=environ.get("dev_hostname")
         port=environ.get("dev_port")
@@ -124,6 +125,7 @@ if __name__ == "__main__":
        hbase_cf_addr_col3=environ.get("prod_hbase_cf_addr_col3")
        hbase_cf_tran_col1=environ.get("prod_hbase_cf_tran_col1")
        hbase_cf_tran_col2=environ.get("prod_hbase_cf_tran_col2")
+       hbase_cf_tran_col3=environ.get("prod_hbase_cf_tran_col3")
        delimmter=environ.get("prod_delimmter")
        hostname=environ.get("prod_hostname")
        port=environ.get("prod_port")
@@ -175,8 +177,9 @@ if __name__ == "__main__":
              hbase_cf_cust_col3:{"cf":hbase_cf_cust, "col":hbase_cf_cust_col3, "type":"long"},
              hbase_cf_addr_col1:{"cf":hbase_cf_addr, "col":hbase_cf_addr_col1, "type":"int"},
              hbase_cf_addr_col2:{"cf":hbase_cf_addr, "col":hbase_cf_addr_col2, "type":"string"},
-             hbase_cf_addr_col3:{"cf":hbase_cf_addr, "col":hbase_cf_addr_col3, "type":"float"},
-             hbase_cf_tran_col1:{"cf":hbase_cf_tran, "col":hbase_cf_tran_col1, "type":"string"},
+             hbase_cf_addr_col3:{"cf":hbase_cf_addr, "col":hbase_cf_addr_col3, "type":"string"},
+             hbase_cf_tran_col1:{"cf":hbase_cf_tran, "col":hbase_cf_tran_col1, "type":"int"},
+             hbase_cf_tran_col2:{"cf":hbase_cf_tran, "col":hbase_cf_tran_col2, "type":"float"},
              hbase_cf_tran_col2:{"cf":hbase_cf_tran, "col":hbase_cf_tran_col2, "type":"string"}
             }
         }""".split ())
