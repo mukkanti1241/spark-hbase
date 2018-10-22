@@ -29,17 +29,25 @@ def extract_from_source(spark,srctype,src_filename):
 
 # function defination for performing certain business logic
 def transformation_logic(df1,df2,df3):
+    #Customer info where Key columsn not null
     df4=df1.select(col("_c0").alias("First_NM"), col("_c1").alias("Last_NM"), col("_c2").alias("Act_ID") \
     ,col("_c3").alias("Income"), col("_c4").alias("Addr_ID")) \
     .where(col("Addr_ID").isNotNull() & col("Act_ID").isNotNull())
+    
+    #Addresss info wheree key columns not null
     df5=df2.select(col("_c0").alias("City"), col("_C1").alias("Pst_CD"), col("_c2").alias("Addr_ID")) \
     .where(col("Addr_ID").isNotNull())
+    
+    #Transaction details where key columns not null
     df6=df3.select(col("_c0").alias("Act_ID"), col("_c1").alias("Addr_ID"), col("_c2").alias("Tran_Amt") \
-    ,col("_c3").alias("Tran_DT")).where(col("Addr_ID").isNotNull() & col("Act_ID").isNotNull()) \
+    ,col("_c3").alias("Tran_DT")).where(col("Addr_ID").isNotNull() & col("Act_ID").isNotNull())
+    
+    # Joining above 3 dataframes
     df4_jn_df5_jn_df6=df4.join(df5,(df4.Addr_ID==df5.Addr_ID), "inner").drop(df5["Addr_ID"]) \
     .join(df6,(df4.Act_ID==df6.Act_ID) &(df4.Addr_ID==df6.Addr_ID),inner") \
     .drop(df6["Act_ID"]).drop(df6["Addr_ID"])
-    return df4_jn_df5_jn_df6
+          
+    return df4_jn_df5_jn_df6#return transformed data frame
 
 # function defination for writing data to hdfs
 def write_to_hdfs (spark, df_target):
