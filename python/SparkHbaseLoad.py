@@ -1,5 +1,5 @@
 # The source file is open source and access to public
-# Generar information about the file
+# General information about the file
 # This file mainly contains 3 layers Extract,Transformation and Loading phases
 # Extract is pulling data from local files or HDFS(parquet) files
 # Transformation is doing some logic related transformations
