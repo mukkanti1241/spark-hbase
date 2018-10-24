@@ -63,8 +63,7 @@ def read_from_hbase(spark,catalog):
     .load()
 # function defination for final output
 def final_result(spark,df_hbase):
-    df7=df_hbase.select("First_NM","Last_NM","Income","Addr_ID","City","Pst_CD","Tran_Amt",col("Tran_DT").cast("timestamp"), month("Tran_dT").alias("Mont
-h"))
+    df7=df_hbase.select("First_NM","Last_NM","Income","Addr_ID","City","Pst_CD","Tran_Amt",col("Tran_DT").cast("timestamp"), month("Tran_dT").alias("Month"))
     df7_filter=df7.filter(col("Income").between("100","150"))
     window=Window. \
       partitionBy('City', 'Month'). \
