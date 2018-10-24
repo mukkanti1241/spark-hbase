@@ -123,7 +123,7 @@ if __name__ == "__main__":
         hbase_namespace=environ.get("prod_hbase_namespace")
         hbase_table=environ.get("prod_hbase_table")
         hbase_cf_cust=environ.get("prod_hbase_cf_cust")
-     hbase_cf_addr=environ.get("prod_hbase_cf_addr")
+        hbase_cf_addr=environ.get("prod_hbase_cf_addr")
         hbase_cf_tran=environ.get("prod_hbase_cf_tran")
         hbase_cf_cust_col1=environ.get("prod_hbase_cust_cf_col1")
         hbase_cf_cust_col2=environ.get("prod_hbase_cf_cust_col2")
